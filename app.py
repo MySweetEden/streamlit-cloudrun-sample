@@ -3,7 +3,7 @@ import plotly.express as px
 import streamlit as st
 
 
-@st.cache
+@st.cache_data
 def load_file():
     # source repository https://github.com/owid/co2-data
     df = pd.read_csv(
@@ -13,7 +13,7 @@ def load_file():
     return df, df_column_meta
 
 
-@st.cache
+@st.cache_data
 def convert_df(df_export, require_index=False):
     return df_export.to_csv(index=require_index).encode("utf-8-sig")
 
